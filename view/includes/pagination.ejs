@@ -1,0 +1,29 @@
+<nav>
+    <ul class="pagination justify-content-center">
+          
+      <li class="page-item <%= haspreviouspage ? "" : "disabled" %> " >
+        <a class="page-link" href="?page=<%= previouspage %> ">Previous</a>
+      </li>
+      
+      <% if(currentpage!= 1 && previouspage!= 1){ %> 
+        <li class="page-item"><a class="page-link" href="?page=1">1</a></li>
+        <% } %>
+      <% if(haspreviouspage){ %> 
+        <li class="page-item"><a class="page-link" href="?page=<%= previouspage %> "><%= previouspage %> </a></li>
+      <% } %> 
+      <li class="page-item active"><a class="page-link" href="?page=<%= currentpage %> "><%= currentpage %> </a></li>
+      <% if(hasnextpage){ %> 
+      <li class="page-item" aria-current="page">
+        <a class="page-link" href="?page=<%= nextpage %> "><%= nextpage %> </a>
+      </li>
+      <% } %> 
+      <% if(lastpage != currentpage && lastpage != nextpage) {%>
+        <li class="page-item "><a class="page-link" href="?page=<%= lastpage %> ">...<%= lastpage %> </a></li>
+      <% } %>  
+      
+      <li class="page-item <%= hasnextpage ? "" : "disabled" %>">
+        <a class="page-link" href="?page=<%= nextpage %> ">Next</a>
+      </li>
+      
+    </ul>
+  </nav>

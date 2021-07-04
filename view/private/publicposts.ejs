@@ -1,0 +1,59 @@
+
+<body>
+    <!-- Responsive navbar-->
+    <%- include("../includes/navbar.ejs") %>
+    <!-- Page header with logo and tagline-->
+    <header class="py-5 bg-light border-bottom mb-4">
+        <div class="container">
+            <div class="text-center my-5">
+                <h1 class="fw-bolder">Welcome to Blog Home!</h1>
+                <p class="lead mb-0">A Bootstrap 5 starter layout for your next blog homepage</p>
+            </div>
+        </div>
+    </header>
+    <% if(publicpost.length > 0) {%> 
+    <!-- Page content-->
+    <div class="container">
+        <div class="row justify-content-center" >
+            <!-- Blog entries-->
+            <div class="col-lg-8 ">
+                <!-- Featured blog post-->
+                <div class="card mb-4">
+                    <%for(let post in publicpost) {%> 
+                        <% if(publicpost[post].thumbnail) {%> 
+                    <a href="/post/<%= publicpost[post]._id  %>">
+                        <img class="card-img-top" src="http://localhost:3000/uploads/thumbnails/<%= publicpost[post].thumbnail %> " alt="..." />
+                    </a>
+                    <% }else{ %> 
+                        <a href="/post/<%= publicpost[post]._id  %> ">
+                            <img class="card-img-top h-50" src="http://localhost:3000/uploads/thumbnails/pictures/no-image.png " alt="..." />
+                        </a>
+                    <% } %> 
+                    <div class="card-body">
+                        <div class="small text-muted"><%=publicpost[post].createdAt %> </div>
+                        <h2 class="card-title"><%= publicpost[post].title %> </h2>
+                        <p class="card-text"><%- truncate(publicpost[post].body , 100) %> </p>
+                        <a class="btn btn-primary" href="/post/<%= publicpost[post]._id  %> ">Read more →</a>
+                    </div>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+    </div>
+    <% } %> 
+     <%- include('../includes/pagination.ejs') %>           
+              
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container"><p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+    
+    
+     
+
+

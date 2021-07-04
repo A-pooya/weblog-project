@@ -1,0 +1,36 @@
+<% if(blogs.length > 0){ %> 
+<h2 class="mt-2">your posts</h2>
+<div class="table-responsive">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Date</th>
+                <th>status</th>
+                <th>more</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% for(let blog in blogs){ %> 
+            <tr>
+                <td>1</td>
+                <td><a href="/blogs/<%= blogs[blog]._id %> "></a><%= blogs[blog].title %> </td>
+                <td><%= blogs[blog].createdAt %> </td>
+                <td><span class="badge <%= blogs[blog].status === "general" ? 'badge-success' : 'badge-warning' %> ">
+                <%= blogs[blog].status %> 
+                </span> 
+            </td>
+            <td><a href="/dashboard/edit-post/<%=  blogs[blog]._id %> " class="btn btn-primary btn-sm">edit</a> </td>
+            <td><a href="/dashboard/delete-post/<%=  blogs[blog]._id %> " class="btn btn-danger btn-sm">delete</a> </td>
+        </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    <%- include("../includes/pagination.ejs") %> 
+</div>
+<% }else{ %> 
+    <div class="text-center">
+        <h1>you did not record any post yet</h1>
+    </div>
+    <% } %> 

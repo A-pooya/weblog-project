@@ -1,0 +1,44 @@
+
+
+
+<form class="form-signin" action="/register" method="POST">
+    <div class="text-center mb-4">
+        <%- include("./includes/errormessage.ejs") %> 
+        
+        <h1 class="h3 mb-3 font-weight-normal">register</h1>
+        
+    </div>
+    <div class="form-label-group">
+        <input name="fullname" type="text" id="inputfullname" class="form-control" placeholder="fullname" autofocus >
+        <label for="inputfullname">fullname</label>
+    </div>
+
+    <div class="form-label-group">
+        <input type="email"
+        name="email"
+        id="inputEmail"
+        class="form-control"
+            placeholder="Email address"
+           
+            >
+        <label for="inputEmail">Email address</label>
+    </div>
+
+    <div class="form-label-group">
+        <input name="password" type="password" id="inputPassword" class="form-control" placeholder="Password" >
+        <label for="inputPassword">Password</label>
+    </div>
+
+    <div class="form-label-group">
+        <input name="confirmpassword" type="password" id="confirmPassword" class="form-control" placeholder="write Password again" >
+        <label for="confirmPassword">write Password again</label>
+    </div>
+
+    <div>
+        <label>
+        <a href="/loggin">did you have account?</a>
+        </label>
+    </div>
+    <button class="btn btn-lg btn-primary btn-block" type="submit">register</button>
+    
+    </form>

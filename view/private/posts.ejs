@@ -1,0 +1,103 @@
+
+<%- include("../includes/navbar.ejs") %>
+<!-- Page Content -->
+<div class="container mt-5">
+    <div class="row">
+        <!-- Post Content Column -->
+        <div class="col">
+            <!-- Title -->
+            <h1 class="mt-4"><%= choosenpost.title %></h1>
+
+            <!-- Author -->
+            <p class="lead">
+                writhen by:
+                <a href="#"><%= choosenpost.user.fullname %></a>
+            </p>
+
+            <hr />
+
+            <!-- Date/Time -->
+            <p>Date: <%= choosenpost.createdAt%></p>
+
+            <hr />
+
+            <!-- Preview Image -->
+            <div class="text-center">
+                <img
+                    class="img-fluid rounded"
+                    src= "http://localhost:3000/uploads/thumbnails/<%= choosenpost.thumbnail %> "
+                    alt=""
+                />
+            </div>
+            <div class="icon-container mt-3" id="icon-container">
+                <button class="icon" id="heartB"><i class="fa fa-heart" title="like" id="heart"></i></button>
+                <button class="icon" id="saveB"><i class="fa fa-save" title="save" id="save"></i></button>
+                <p id="numberoflikes"></p>    
+            </div>
+
+            <hr />
+
+
+            <!-- Post Content -->
+            <p class="text-justify"><%- choosenpost.body %></p>
+
+            <hr />
+
+            <!-- Comments Form -->
+            <div class="card my-4">
+                <h5 class="card-header">write your comment</h5>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3" placeholder="comment"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Single Comment -->
+            <div class="media mb-4">
+                <img
+                    class="d-flex mr-3 rounded-circle"
+                    src="http://placehold.it/50x50"
+                    alt=""
+                />
+                <div class="media-body">
+                    <h5 class="mt-0">amir</h5>
+                    coment for test
+                </div>
+            </div>
+
+            <!-- Comment with nested comments -->
+            <div class="media mb-4">
+                <img
+                    class="d-flex mr-3 rounded-circle"
+                    src="http://placehold.it/50x50"
+                    alt=""
+                />
+                <div class="media-body">
+                    <h5 class="mt-0">amir</h5>
+                   comment for test2
+
+                    <div class="media mt-4">
+                        <img
+                            class="d-flex mr-3 rounded-circle"
+                            src="http://placehold.it/50x50"
+                            alt=""
+                        />
+                        <div class="media-body">
+                            <h5 class="mt-0">amin </h5>
+                            comment for test3
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../includes/footer.ejs') %>
+<link rel="stylesheet" href="/css/iconstyle.css">
+<script src="/js/icons.js"></script>

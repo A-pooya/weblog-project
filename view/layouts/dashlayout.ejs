@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+    <link href="/css/font-awesome.min.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://cdn.ckeditor.com/4.16.1/standard/ckeditor.js"></script>
+   
+    <% if(path === "/dashboard" || path ==="/dashboard/add-post" || path === '/dashboard/edit-post'){ %>
+        <link href="/css/dashboard.css" rel="stylesheet">
+        <link rel="stylesheet" href="/css/bootstrap-rtl.min.css">
+        <script src="/js/bootstrap.bundle.min.js"></script>
+
+        
+        <% } %> 
+        
+        
+        <title><%= pagetitle %> </title>
+        
+        
+    </head>
+    <body>
+        
+        
+        <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+            <div class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">hello <%= fullname %> </div>
+            <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <input class="form-control form-control-dark w-80" type="text" placeholder="Search" aria-label="Search">
+            <a class="nav-link " href="/">home</a>
+            <ul class="navbar-nav px-3">
+                <li class="nav-item text-nowrap">
+                    <a class="nav-link " href="#">Sign out</a>
+                </li>
+                
+            </ul>
+        </header>
+        <div class="container-fluid">
+            <div class="row">
+              <%- include("../includes/sidebar.ejs") %> 
+          
+              <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                  <%- body %> 
+                </main>
+            </div>
+        </div>
+        <canvas class="my-4 w-100" id="myChart" width="900" height="380"></canvas>
+        <% if(path === "/dashboard/add-post" || path === '/dashboard/edit-post'){ %>
+            <script src="/js/upload.js"></script>
+            <script>
+                CKEDITOR.replace('body',{
+                    language: 'en',
+                })   
+            </script>
+            <% } %> 
+      
+        <script src="/js/jquery.slim.min.js"></script> <!-- for disabling errors of add-post and edit-post when an input fill wrong -->
+        <script src="/js/bootstrap.min.js"></script>
+  
+
+</body>

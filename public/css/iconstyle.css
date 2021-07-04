@@ -1,0 +1,22 @@
+i{
+    background-color: white;
+    color: black;
+}
+.icon{
+    border: none;
+    background-color:white;
+    
+   
+} 
+
+#icon-container{
+    display: flex;
+    justify-content: center;
+
+}
+i:hover{
+    color: purple;
+}
+
+
+

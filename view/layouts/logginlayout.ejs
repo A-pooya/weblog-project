@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="/css/bootstrap-rtl.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <% if (path === "/loggin" || path === "/register"){ %> 
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <!-- Custom styles for this template -->
+      <link href="/css/floating-lablels.css" rel="stylesheet">
+      <% } %> 
+      <% if(path === '/'){ %> 
+        <link href="/css/carousel.css" rel="stylesheet">
+        
+        <% } %> 
+        <% if(path === "/404"){ %>
+          <link rel="stylesheet" href="/css/404.css">
+          <script src="/code/404script.js"></script>
+          <% } %> 
+          <% if(path === "/dashbord"){ %>
+            <link href="/css/dashboard.css" rel="stylesheet">
+            <link rel="stylesheet" href="/css/bootstrap-rtl.min.css">
+            <script src="/js/bootstrap.bundle.min.js"></script>
+            
+            <% } %> 
+            <% if(path === "/public-posts") {%> 
+              <link href="css/publicposts.css" rel="stylesheet" />
+              <% } %> 
+              <% if(path === "/post") {%> 
+                <link href="/css/post.css" rel="stylesheet" /> <!-- بررسی بشه چرا این فایل رو نمیخونه و تو یو آر ال یه "پست "اضافه میکنه -->
+                <% } %> 
+            <title><%= pagetitle %> </title>
+            
+            
+          </head>
+          <body>
+            <%- body %> 
+            <script src="/js/jquery.slim.min.js"></script>
+            <script src="/js/bootstrap.min.js"></script>
+            <script src="/code/slidescript.js"></script>
+      
+
+</body>
+</html>
